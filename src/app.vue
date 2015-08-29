@@ -22,6 +22,7 @@
         methods:{
             test:function () {
                 alert("我是app自带事件");
+                this.$broadcast('parent-created', "我想传递给”儿子们“的消息");
             }
         },
         components: {
@@ -31,7 +32,7 @@
         },
         created: function () {
             this.$on('child-created', function (child) {
-                alert('这是子组件c想告诉我的消息'+child);
+                alert('这是子组件c想告诉我的消息：'+child);
             })
         }
     }
