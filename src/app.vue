@@ -19,10 +19,20 @@
         data:{
             msg:"哈哈哈哈"
         },
-      components: {
-        'comp-a': compA,
-        'comp-b': compB,
-        'comp-c': compC
-      }
+        methods:{
+            test:function () {
+                alert("我是app自带事件");
+            }
+        },
+        components: {
+            'comp-a': compA,
+            'comp-b': compB,
+            'comp-c': compC
+        },
+        created: function () {
+            this.$on('child-created', function (child) {
+                alert('这是子组件c想告诉我的消息'+child);
+            })
+        }
     }
 </script>
